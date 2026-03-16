@@ -1,0 +1,1 @@
+![Security](https://github.com/Crabe19/devsecops-lab/actions/workflows/security.yml/badge.svg)
