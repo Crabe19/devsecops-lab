@@ -48,9 +48,9 @@ if (process.env.NODE_ENV !== 'production') {
     res.json({ message: 'Debug mode' });
   });
 }
-// ❌ VULNÉRABLE : Injection SQL pour l'exercice 1
-app.get('/api/users', (req, res) => {
-  const query = "SELECT * FROM users WHERE id = " + req.query.id;
-  res.json({ message: "Executing query: " + query });
+// ❌ VULNÉRABLE : Exécution de code arbitraire (RCE) pour l'exercice 1
+app.get('/api/execute', (req, res) => {
+  const result = eval(req.query.code); // Très dangereux
+  res.json({ result });
 });
 app.listen(3000, () => console.log('✅ Secure server running'));
