@@ -1,6 +1,8 @@
 # ✅ Image Alpine (plus légère et sécurisée)
 FROM node:22-alpine
+RUN apk update && apk upgrade --no-cache
 WORKDIR /app
+
 
 # ✅ Copie des dépendances d'abord (cache)
 COPY src/package*.json ./
