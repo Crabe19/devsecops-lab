@@ -140,12 +140,12 @@ jobs:
           else
             echo "✅ All security checks passed" >> $GITHUB_STEP_SUMMARY
           fi
-security-gate:
-    name: 🚦 Security Gate
-    runs-on: ubuntu-latest
-    needs: [sast, sca, secrets, container-scan]
-    steps:
-      - name: Check results
-        run: |
-          echo "✅ No critical vulnerabilities found in the latest scan."
-          echo "🚀 Deployment authorized."
+  security-gate:
+      name: 🚦 Security Gate
+      runs-on: ubuntu-latest
+      needs: [sast, sca, secrets, container-scan]
+      steps:
+        - name: Check results
+          run: |
+            echo "✅ No critical vulnerabilities found in the latest scan."
+            echo "🚀 Deployment authorized."
