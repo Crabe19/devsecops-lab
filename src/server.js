@@ -49,8 +49,10 @@ if (process.env.NODE_ENV !== 'production') {
   });
 }
 // ❌ VULNÉRABLE : Exécution de code arbitraire (RCE) pour l'exercice 1
-app.get('/api/execute', (req, res) => {
-  const result = eval(req.query.code); // Très dangereux
-  res.json({ result });
-});
+
+//app.get('/api/execute', (req, res) => {
+  //const result = eval(req.query.code); // Très dangereux
+  //res.json({ result });
+//});
+
 app.listen(3000, () => console.log('✅ Secure server running'));
